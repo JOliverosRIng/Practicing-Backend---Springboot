@@ -1,0 +1,54 @@
+// Proyecto 1: Mal hecho pero funcional
+// Estructura simple en un solo paquete
+
+// User.java
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class User {
+    @Id
+    private Long id;
+    private String name;
+
+    // Getters y setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+}
+
+// UserRepository.java
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {}
+
+// UserController.java
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+public class UserController {
+    private final UserRepository repo;
+
+    public UserController(UserRepository repo) {
+        this.repo = repo;
+    }
+
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return repo.findAll();
+    }
+}
+
+// application.properties
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+
+// data.sql
+INSERT INTO USER (id, name) VALUES (1, 'Alice');
+INSERT INTO USER (id, name) VALUES (2, 'Bob');
