@@ -63,7 +63,7 @@ GET http://localhost:8080/users
 
 ---
 
-## 🔍 Resultado
+## Resultado
 
 ### JSON de respuesta esperado
 
