@@ -88,13 +88,6 @@ No se usaron ramas, por ahora :D
 
 ---
 
-## Capturas
-
-- `proyecto-1-mal/img/respuesta.png`
-- `proyecto-2-bien/img/respuesta.png`
-
----
-
 ## Licencia
 
 Este proyecto es parte de una práctica educativa y no está destinado para uso en producción.
